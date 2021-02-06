@@ -16,6 +16,8 @@ Slides coming soon!
 
 Once TornadoVM is installed, please configure the `sources.sh` file with your paths to the `JAVA_HOME` and `TORNADO_ROOT`.
 
+All these examples and scripts uses Java 8. For JDK >= 11, please file an issue, and we can work through it together.   
+
 ```bash
 ## Provide the paths to your path to the OpenJDK+JVMCI bin
 export JAVA_HOME=<path-to-OpenJDK>
