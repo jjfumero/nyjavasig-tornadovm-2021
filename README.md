@@ -35,6 +35,12 @@ Run:
 . sources.sh
 ```
 
+Compile this tutorial:
+
+```bash
+mvn clean package
+```
+
 ### 1) Running DFT
 
 This example is taken from the example-suite of [TornadoVM](https://github.com/beehive-lab/TornadoVM):
