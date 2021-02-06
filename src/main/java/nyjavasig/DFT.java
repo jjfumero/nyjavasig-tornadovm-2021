@@ -19,6 +19,21 @@ import java.util.Random;
  * $ tornado nyjavasig.DFT <inputSize> <version:sequential|tornadoVM> <numIterations>
  * </code>
  *
+ * How to run on the FPGA?
+ *
+ * Assuming the FPGA is the device 0:1
+ *
+ * <code>
+ * $ tornado --debug --printKernel -Ds0.t0.device=0:1 -Dtornado.fpga.conf.file=dftFPGA.conf nyjavasig.DFT 8192 tornado 5
+ * </code>
+ *
+ * Running on the FPGA with emulation mode:
+ *
+ * <code>
+ * $ export CL_CONTEXT_EMULATOR_DEVICE_INTELFPGA=1
+ * $ tornado --debug --printKernel -Ds0.t0.device=0:1 -Dtornado.fpga.conf.file=dftFPGA.conf nyjavasig.DFT 8192 tornado 5
+ * </code>
+ *
  */
 public class DFT {
 
@@ -47,12 +62,12 @@ public class DFT {
         computeDft(inReal, inImag, outRealTor, outImagTor);
 
         for (int i = 0; i < size; i++) {
-            if (Math.abs(outImagTor[i] - outImag[i]) > 0.1) {
+            if (Math.abs(outImagTor[i] - outImag[i]) > 0.5) {
                 System.out.println(outImagTor[i] + " vs " + outImag[i] + "\n");
                 val = false;
                 break;
             }
-            if (Math.abs(outReal[i] - outRealTor[i]) > 0.1) {
+            if (Math.abs(outReal[i] - outRealTor[i]) > 0.5) {
                 System.out.println(outReal[i] + " vs " + outRealTor[i] + "\n");
                 val = false;
                 break;
