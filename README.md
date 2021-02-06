@@ -45,5 +45,16 @@ Note, you need an FPGA to run these demos.
 
 ### 3) Running Live Task Migration 
 
+Demo using the Client-Server application to change the devices through the client:
+
+How to run it?:
+
+```bash
+## Run Server in one terminal
+./runServer.sh
+
+## Client in another terminal
+./runClient.sh
+```
 
 ### 4) Python 
