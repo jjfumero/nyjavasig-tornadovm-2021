@@ -1,4 +1,4 @@
-#NYJavaSIG 2021 Demos 
+# NYJavaSIG 2021 Demos 
 
 This repository contains examples and tests shown at the NYJavaSIG TornadoVM talk in Feb 2021
 
