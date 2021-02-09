@@ -43,15 +43,41 @@ cd python
 # Third Demo: IGV  
 # ############################################################################
 
-Run IGV 20.2.0 
-
-```bash
+#Run IGV 20.2.0 
 ~/Downloads/20.2.0/idealgraphvisualizer/bin/idealgraphvisualizer &
-```
 
-Run an example (vector add)
-```bash
+
+# Run an example (vector add)
+
 tornado --igv nyjavasig.TestTornado
-```
 
+
+# ############################################################################
+# FPGA Demo: 
+# ############################################################################
+
+## Running sequential
+tornado --debug --printKernel -Ds0.t0.device=0:2 -Dtornado.fpga.conf.file=dftFPGAEmulation.conf nyjavasig.DFT 8192 sequential 5
+
+## Running emulation mode
+tornado --debug --printKernel -Ds0.t0.device=0:2 -Dtornado.fpga.conf.file=dftFPGAEmulation.conf nyjavasig.DFT 8192 tornado 5
+
+## Running on real hardware
+tornado --debug --printKernel -Ds0.t0.device=0:2 -Dtornado.fpga.conf.file=dftFPGA.conf nyjavasig.DFT 8192 tornado 5
+
+## Running Blaskscholes
+tornado --debug -Ds0.t0.device=0:2 -Dtornado.fpga.conf.file=blackScholes.conf nyjavasig.BlackScholes 33554432 5
+
+
+
+# ############################################################################
+# Live Task Migration Demo: 
+# ############################################################################
+
+
+runServer.sh
+
+## In another terminal
+
+runClient.sh
 

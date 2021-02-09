@@ -81,20 +81,20 @@ Note, you need an FPGA to run these demos.
 ##### Run DFT on the FPGA
 
 ```bash
-tornado --debug --printKernel -Ds0.t0.device=0:1 -Dtornado.fpga.conf.file=dftFPGA.conf nyjavasig.DFT 8192 tornado 5
+tornado --debug --printKernel -Ds0.t0.device=0:2 -Dtornado.fpga.conf.file=dftFPGA.conf nyjavasig.DFT 8192 tornado 5
 ```
 
 Running with Emulation mode:
 
 ```bash
 export CL_CONTEXT_EMULATOR_DEVICE_INTELFPGA=1
-tornado --debug --printKernel -Ds0.t0.device=0:1 -Dtornado.fpga.conf.file=dftFPGA.conf nyjavasig.DFT 8192 tornado 5
+tornado --debug --printKernel -Ds0.t0.device=0:2 -Dtornado.fpga.conf.file=dftFPGA.conf nyjavasig.DFT 8192 tornado 5
 ```
 
 ##### Running BlackScholes 
 
 ```bash
-tornado --debug -Ds0.t0.device=0:1 -Dtornado.fpga.conf.file=blackScholes.conf nyjavasig.BlackScholes 33554432 5
+tornado --debug -Ds0.t0.device=0:2 -Dtornado.fpga.conf.file=blackScholes.conf nyjavasig.BlackScholes 33554432 5
 ```
 
 ### 3) Running Live Task Migration 
