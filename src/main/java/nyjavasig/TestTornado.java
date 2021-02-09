@@ -19,6 +19,9 @@ import uk.ac.manchester.tornado.api.annotations.Reduce;
  * Print OpenCL kernel generated
  * $ tornado --debug --printKernel nyjavasig.TestTornado
  *
+ * Run it with IGV?
+ * $ tornado --igv --debug --printKernel nyjavasig.TestTornado
+ *
  */
 public class TestTornado {
 
