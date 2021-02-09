@@ -3,7 +3,7 @@
 import numpy as np
 import time 
 
-size = 1024
+size = 512
 a = np.random.rand(size, size)
 b = np.random.rand(size, size)
 

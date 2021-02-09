@@ -291,4 +291,5 @@ PYTHON=${JAVA_HOME}/bin/graalpython
 echo $PYTHON
 echo $JAVA_FLAGS
 
-${PYTHON} ${JAVA_FLAGS} $@
+${PYTHON} ${JAVA_FLAGS} --vm.Dtornado.heap.allocation=2048MB --vm.Xmx12g --vm.Xms12g $@
+

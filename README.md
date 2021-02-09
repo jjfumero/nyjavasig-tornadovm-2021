@@ -112,3 +112,28 @@ How to run it?:
 ```
 
 ### 4) Python 
+
+
+```bash
+cd python 
+
+## Run TornadoVM accelerated (512 x 512 Doubles)
+./runPython.sh mxmWithTornadoVM.py
+
+## Run CPU GraalVM 
+./runPython.sh mxm.py
+```
+
+
+### 5) Running TornadoVM with Ideal Graph Visualizer (IGV)
+
+Run IGV 20.2.0 
+
+```bash
+~/Downloads/20.2.0/idealgraphvisualizer/bin/idealgraphvisualizer &
+```
+
+Run an example (vector add)
+```bash
+tornado --igv nyjavasig.TestTornado
+```

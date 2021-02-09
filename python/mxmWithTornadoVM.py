@@ -5,8 +5,9 @@ import java
 import time
 myclass = java.type('uk.ac.manchester.tornado.examples.polyglot.MyCompute')
 
-start = time.time()
-output = myclass.computeMxM()
-end = time.time()
-print(output.toString())
-print("Total time: " + str((end-start)))
+for i in range(5):
+    start = time.time()
+    output = myclass.computeMxM()
+    end = time.time()
+    print("Total time: " + str((end-start)))
+

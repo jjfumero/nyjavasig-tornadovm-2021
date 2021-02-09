@@ -80,7 +80,7 @@ public class DFT {
     public static void main(String[] args) {
 
         if (args.length < 3) {
-            System.out.println("Usage: <size> <mode:performance|end|sequential> <iterations>");
+            System.out.println("Usage: <size> <mode:tornado|sequential> <iterations>");
             System.exit(-1);
         }
 
