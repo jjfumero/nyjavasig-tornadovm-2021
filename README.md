@@ -94,7 +94,7 @@ tornado --debug --printKernel -Ds0.t0.device=0:1 -Dtornado.fpga.conf.file=dftFPG
 ##### Running BlackScholes 
 
 ```bash
-tornado --debug -Ds0.t0.device=0:1 -Dtornado.fpga.conf.file=blackScholes.conf nyjavasig.BlackScholes 33554432
+tornado --debug -Ds0.t0.device=0:1 -Dtornado.fpga.conf.file=blackScholes.conf nyjavasig.BlackScholes 33554432 5
 ```
 
 ### 3) Running Live Task Migration 

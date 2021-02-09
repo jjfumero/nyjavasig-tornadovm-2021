@@ -19,7 +19,7 @@ import uk.ac.manchester.tornado.api.collections.math.TornadoMath;
  * For example, FPGA is device 0:1
  *
  * <code>
- * $ tornado --debug -Ds0.t0.device=0:1 -Dtornado.fpga.conf.file=blackScholes.conf nyjavasig.BlackScholes 33554432
+ * $ tornado --debug -Ds0.t0.device=0:1 -Dtornado.fpga.conf.file=blackScholes.conf nyjavasig.BlackScholes 33554432 5
  * </code>
  *
  * Note that we pass a configuration file for the FPGA: The configuration file contains the following:
@@ -35,8 +35,6 @@ import uk.ac.manchester.tornado.api.collections.math.TornadoMath;
  *
  */
 public class BlackScholes {
-
-    private static final int WARM_UP_ITERATIONS = 100;
 
     private static void blackScholesKernel(float[] input, float[] callResult, float[] putResult) {
         for (@Parallel int idx = 0; idx < callResult.length; idx++) {
@@ -85,18 +83,18 @@ public class BlackScholes {
         double delta = 1.8;
         for (int i = 0; i < call.length; i++) {
             if (Math.abs(call[i] - callPrice[i]) > delta) {
-                System.out.println("call: " + call[i] + " vs gpu " + callPrice[i]);
+                System.out.println("call: " + call[i] + " vs {gpu|fpga} " + callPrice[i]);
                 return false;
             }
             if (Math.abs(put[i] - putPrice[i]) > delta) {
-                System.out.println("put: " + put[i] + " vs gpu " + putPrice[i]);
+                System.out.println("put: " + put[i] + " vs {gpu|fpga} " + putPrice[i]);
                 return false;
             }
         }
         return true;
     }
 
-    public static void blackScholes(int size) {
+    public static void blackScholes(int size, int iterations) {
         Random random = new Random();
         float[] input = new float[size];
         float[] callPrice = new float[size];
@@ -112,14 +110,14 @@ public class BlackScholes {
                 .task("t0", BlackScholes::blackScholesKernel, input, callPrice, putPrice) //
                 .streamOut(callPrice, putPrice);
 
-        for (int i = 0; i < WARM_UP_ITERATIONS; i++) {
+        for (int i = 0; i < iterations; i++) {
             graph.execute();
         }
         long start = System.nanoTime();
         graph.execute();
         long end = System.nanoTime();
 
-        for (int i = 0; i < WARM_UP_ITERATIONS; i++) {
+        for (int i = 0; i < iterations; i++) {
             blackScholesKernel(input, seqCall, seqPut);
         }
         long start2 = System.nanoTime();
@@ -136,14 +134,21 @@ public class BlackScholes {
 
     public static void main(String[] args) {
         System.out.println("BlackScholes TornadoVM");
+        if (args.length < 2) {
+            System.out.println("Usage: <size> <iterations>");
+            System.exit(-1);
+        }
         int size = 1024;
+        int iterations = 5;
         if (args.length > 0) {
             try {
                 size = Integer.parseInt(args[0]);
+                iterations = Integer.parseInt(args[1]);
             } catch (NumberFormatException ignored) {
             }
         }
+
         System.out.println("Input size: " + size + " \n");
-        blackScholes(size);
+        blackScholes(size, iterations);
     }
 }
