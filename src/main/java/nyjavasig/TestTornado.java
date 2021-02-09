@@ -2,6 +2,7 @@ package nyjavasig;
 
 import uk.ac.manchester.tornado.api.TaskSchedule;
 import uk.ac.manchester.tornado.api.annotations.Parallel;
+import uk.ac.manchester.tornado.api.annotations.Reduce;
 
 /**
  * Hello world in TornadoVM. Example to show how to run with TornadoVM.
@@ -23,7 +24,7 @@ public class TestTornado {
 
     public static void vectorMult(float[] a, float[] b, float[] c) {
         for (@Parallel int i = 0; i < a.length; i++) {
-            c[i] = a[i] * b[i];
+            c[i] = a[i] * b[i] + 12.0f;
         }
     }
 
@@ -34,11 +35,10 @@ public class TestTornado {
         float[] b = new float[8192];
         float[] c = new float[8192];
 
-        TaskSchedule ts = new TaskSchedule("s0")
+        new TaskSchedule("s0")
                 .streamIn(a, b)
                 .task("t0", TestTornado::vectorMult, a, b, c)
-                .streamOut(c);
-
-        ts.execute();
+                .streamOut(c)
+                .execute();
     }
 }

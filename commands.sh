@@ -25,7 +25,6 @@ tornado --debug -Ds0.t0.device=0:1 nyjavasig.DFT 8192 tornado 10
 tornado --printKernel --debug -Ds0.t0.device=0:1 nyjavasig.DFT 8192 tornado 10
 
 
-
 # ############################################################################
 # Second Demo: Python 
 # ############################################################################
@@ -36,7 +35,6 @@ cd python
 
 ## Run CPU GraalVM 
 ./runPython.sh mxm.py
-
 
 
 # ############################################################################
@@ -53,7 +51,7 @@ tornado --igv nyjavasig.TestTornado
 
 
 # ############################################################################
-# FPGA Demo: 
+# FPGA Demo: Assuming FPGA is device 2
 # ############################################################################
 
 ## Running sequential
@@ -66,14 +64,12 @@ tornado --debug --printKernel -Ds0.t0.device=0:2 -Dtornado.fpga.conf.file=dftFPG
 tornado --debug --printKernel -Ds0.t0.device=0:2 -Dtornado.fpga.conf.file=dftFPGA.conf nyjavasig.DFT 8192 tornado 5
 
 ## Running Blaskscholes
-tornado --debug -Ds0.t0.device=0:2 -Dtornado.fpga.conf.file=blackScholes.conf nyjavasig.BlackScholes 33554432 5
-
+tornado --debug --printKernel -Ds0.t0.device=0:2 -Dtornado.fpga.conf.file=blackScholes.conf nyjavasig.BlackScholes 33554432 5
 
 
 # ############################################################################
 # Live Task Migration Demo: 
 # ############################################################################
-
 
 runServer.sh
 
