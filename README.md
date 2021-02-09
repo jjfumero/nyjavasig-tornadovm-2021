@@ -55,22 +55,22 @@ Example:
 
 ```bash
 # Running Sequential
-tornado nyjavasig.DFT 65534 sequential 10
+tornado nyjavasig.DFT 8192 sequential 10
 
 # Running Parallel Version with TornadoVM
-tornado nyjavasig.DFT 65534 tornado 10
+tornado nyjavasig.DFT 8192 tornado 10
 ```
 
 Changing device?
 ```bash
 # Running Parallel Version with TornadoVM
-tornado --debug -Ds0.t0.device=0:1 nyjavasig.DFT 65534 tornado 10
+tornado --debug -Ds0.t0.device=0:1 nyjavasig.DFT 8192 tornado 10
 ```
 
 Print Kernel:
 ```bash
 # Running Parallel Version with TornadoVM
-tornado --printKernel --debug -Ds0.t0.device=0:1 nyjavasig.DFT 65534 tornado 10
+tornado --printKernel --debug -Ds0.t0.device=0:1 nyjavasig.DFT 8192 tornado 10
 ```
 
 
@@ -126,6 +126,8 @@ cd python
 
 
 ### 5) Running TornadoVM with Ideal Graph Visualizer (IGV)
+
+IGV can be downloaded from [Oracle OTN](https://www.oracle.com/downloads/graalvm-downloads.html)
 
 Run IGV 20.2.0 
 
