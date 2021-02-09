@@ -1,5 +1,5 @@
 # ############################################################################
-# First Demo: DFT 
+# Demo: DFT 
 # ############################################################################
 
 ## Run Sequential 
@@ -26,31 +26,6 @@ tornado --printKernel --debug -Ds0.t0.device=0:1 nyjavasig.DFT 8192 tornado 10
 
 
 # ############################################################################
-# Second Demo: Python 
-# ############################################################################
-cd python 
-
-## Run TornadoVM accelerated (512 x 512 Doubles)
-./runPython.sh mxmWithTornadoVM.py
-
-## Run CPU GraalVM 
-./runPython.sh mxm.py
-
-
-# ############################################################################
-# Third Demo: IGV  
-# ############################################################################
-
-#Run IGV 20.2.0 
-~/Downloads/20.2.0/idealgraphvisualizer/bin/idealgraphvisualizer &
-
-
-# Run an example (vector add)
-
-tornado --igv nyjavasig.TestTornado
-
-
-# ############################################################################
 # FPGA Demo: Assuming FPGA is device 2
 # ############################################################################
 
@@ -65,6 +40,19 @@ tornado --debug --printKernel -Ds0.t0.device=0:2 -Dtornado.fpga.conf.file=dftFPG
 
 ## Running Blaskscholes
 tornado --debug --printKernel -Ds0.t0.device=0:2 -Dtornado.fpga.conf.file=blackScholes.conf nyjavasig.BlackScholes 33554432 5
+
+
+# ############################################################################
+# Third Demo: IGV  
+# ############################################################################
+
+#Run IGV 20.2.0 
+~/Downloads/20.2.0/idealgraphvisualizer/bin/idealgraphvisualizer &
+
+
+# Run an example (vector add)
+
+tornado --igv nyjavasig.TestTornado
 
 
 # ############################################################################
