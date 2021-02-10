@@ -12,8 +12,10 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 import uk.ac.manchester.tornado.api.TaskSchedule;
+import uk.ac.manchester.tornado.api.TornadoTargetDevice;
 import uk.ac.manchester.tornado.api.annotations.Parallel;
 import uk.ac.manchester.tornado.api.TornadoDriver;
+import uk.ac.manchester.tornado.api.common.TornadoDevice;
 import uk.ac.manchester.tornado.api.runtime.TornadoRuntime;
 
 public class Server extends Thread {
@@ -88,7 +90,8 @@ public class Server extends Thread {
                     deviceNumber = maxDevices - 1;
                 }
 
-                ts.mapAllTo(driver.getDevice(deviceNumber));
+                TornadoDevice device = driver.getDevice(deviceNumber);
+                ts.mapAllTo(device);
 
                 System.out.println("Selecting the device: " + deviceNumber);
                 request += '\n';
