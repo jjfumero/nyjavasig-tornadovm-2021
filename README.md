@@ -119,9 +119,6 @@ cd python
 
 ## Run TornadoVM accelerated (512 x 512 Doubles)
 ./runPython.sh mxmWithTornadoVM.py
-
-## Run CPU GraalVM 
-./runPython.sh mxm.py
 ```
 
 
