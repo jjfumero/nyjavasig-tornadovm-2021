@@ -27,7 +27,7 @@ public class TestTornado {
 
     public static void vectorMult(float[] a, float[] b, float[] c) {
         for (@Parallel int i = 0; i < a.length; i++) {
-            c[i] = a[i] * b[i] + 12.0f;
+            c[i] = a[i] * b[i];
         }
     }
 

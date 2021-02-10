@@ -64,4 +64,3 @@ runServer.sh
 ## In another terminal
 
 runClient.sh
-

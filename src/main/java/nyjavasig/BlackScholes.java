@@ -7,7 +7,9 @@ import uk.ac.manchester.tornado.api.annotations.Parallel;
 import uk.ac.manchester.tornado.api.collections.math.TornadoMath;
 
 /**
- * BlackScholes implementation adapted from AMD-OpenCL, and TornadoVM examples suite.
+ * Black-Scholes model implementation adapted from AMD-OpenCL, and TornadoVM examples suite.
+ *
+ * Details: https://en.wikipedia.org/wiki/Black%E2%80%93Scholes_model
  *
  * How to run:
  *
