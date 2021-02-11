@@ -2,9 +2,7 @@
 
 This repository contains examples and tests shown at the NYJavaSIG TornadoVM talk in Feb 2021
 
-Link to the event: [link](https://www.eventbrite.com/e/transparent-heterogeneous-computing-for-java-via-tornadovm-tickets-138156215961)
-
-Slides coming soon! 
+Link to the event: [Video Recording](https://www.youtube.com/watch?v=4t1CBNCTdf0)
 
 ### Pre-requisites and Setup
 
