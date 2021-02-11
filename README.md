@@ -124,7 +124,7 @@ cd python
 
 ### 5) Running TornadoVM with Ideal Graph Visualizer (IGV)
 
-IGV can be downloaded from [Oracle OTN](https://www.oracle.com/downloads/graalvm-downloads.html)
+IGV can be downloaded from [Oracle OTN](https://docs.oracle.com/en/graalvm/enterprise/20/docs/tools/igv/)
 
 Run IGV 20.2.0 
 
