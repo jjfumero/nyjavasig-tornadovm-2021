@@ -7,7 +7,7 @@ myclass = java.type('uk.ac.manchester.tornado.examples.polyglot.MyCompute')
 
 for i in range(5):
     start = time.time()
-    output = myclass.computeMxM()
+    output = myclass.compute()
     end = time.time()
     print("Total time: " + str((end-start)))
 
